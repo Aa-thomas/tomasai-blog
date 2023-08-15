@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.23.2",
     "@react-three/drei": "^9.80.2",
     "@react-three/fiber": "^8.13.6",
     "@types/node": "20.4.5",
@@ -18,9 +19,8 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
-    "next-auth": "^4.23.0",
     "postcss": "8.4.27",
-    "prisma": "^5.0.0",
+    "prisma": "^5.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-spinners": "^0.13.8",

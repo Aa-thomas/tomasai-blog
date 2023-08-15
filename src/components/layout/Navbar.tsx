@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SignInButton, SignOutButton } from '../Auth/Buttons';
+import { UserButton } from '@clerk/nextjs';
 
 export const Navbar = async () => {
 	return (
@@ -43,7 +44,9 @@ export const Navbar = async () => {
 						</li>
 					</ul>
 				</div>
-				<a className="text-xl normal-case btn btn-ghost">daisyUI</a>
+				<Link href="/" className="text-xl normal-case btn btn-ghost">
+					Home
+				</Link>
 			</div>
 			<div className="hidden navbar-center lg:flex">
 				<ul className="px-1 menu menu-horizontal">
@@ -68,9 +71,10 @@ export const Navbar = async () => {
 					</li>
 				</ul>
 			</div>
-			<div className="navbar-end">
-				<a className="btn">Button</a>
-			</div>
+			<UserButton />
+			<Link href="/sign-in" className="navbar-end">
+				Button
+			</Link>
 		</div>
 	);
 };

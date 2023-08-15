@@ -2,8 +2,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import AuthProvider from '@/components/Auth/AuthProvider';
 import Footer from '@/components/layout/Footer';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,11 +20,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<AuthProvider>
+				<ClerkProvider>
 					<Navbar />
 					{children}
 					<Footer />
-				</AuthProvider>
+				</ClerkProvider>
 			</body>
 		</html>
 	);

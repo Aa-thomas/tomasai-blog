@@ -1,7 +1,8 @@
 'use client';
+
 export const SignInButton = () => {
-	return <button onClick={() => signIn()}>Sign In</button>;
+	return <SignIn />;
 };
 export const SignOutButton = () => {
-	return <button onClick={() => signOut()}>Sign Out</button>;
+	return <button>Sign Out</button>;
 };
