@@ -1,4 +1,5 @@
 'use client';
+import { SignInButton, SignUp, SignUpButton, UserButton } from '@clerk/nextjs';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiMenu, FiArrowRight } from 'react-icons/fi';
@@ -43,14 +44,14 @@ const Logo = () => {
 	);
 };
 
-const NavLeft = ({ setIsOpen }) => {
+const NavLeft = ({ setIsOpen }: any) => {
 	return (
 		<div className="flex items-center gap-6">
 			<motion.button
 				whileHover={{ scale: 1.05 }}
 				whileTap={{ scale: 0.95 }}
 				className="block text-2xl lg:hidden text-gray-950"
-				onClick={() => setIsOpen((pv) => !pv)}>
+				onClick={() => setIsOpen((pv: any) => !pv)}>
 				<FiMenu />
 			</motion.button>
 			<Logo />
@@ -61,7 +62,7 @@ const NavLeft = ({ setIsOpen }) => {
 	);
 };
 
-const NavLink = ({ text }) => {
+const NavLink = ({ text }: any) => {
 	return (
 		<a
 			href="#"
@@ -82,23 +83,24 @@ const NavLink = ({ text }) => {
 const NavRight = () => {
 	return (
 		<div className="flex items-center gap-4">
+			<UserButton />
 			<motion.button
 				whileHover={{ scale: 1.05 }}
 				whileTap={{ scale: 0.95 }}
 				className="px-4 py-2 font-medium text-transparent rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text whitespace-nowrap">
-				Sign in
+				<SignInButton />
 			</motion.button>
 			<motion.button
 				whileHover={{ scale: 1.05 }}
 				whileTap={{ scale: 0.95 }}
 				className="px-4 py-2 font-medium text-white rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 whitespace-nowrap">
-				Sign up
+				<SignUpButton />
 			</motion.button>
 		</div>
 	);
 };
 
-const NavMenu = ({ isOpen }) => {
+const NavMenu = ({ isOpen }: any) => {
 	return (
 		<motion.div
 			variants={menuVariants}
@@ -112,7 +114,7 @@ const NavMenu = ({ isOpen }) => {
 	);
 };
 
-const MenuLink = ({ text }) => {
+const MenuLink = ({ text }: any) => {
 	return (
 		<motion.a
 			variants={menuLinkVariants}
