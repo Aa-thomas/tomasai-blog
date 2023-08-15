@@ -1,10 +1,10 @@
-import { Navbar } from '@/components/layout/Navbar';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
+import FlipNavWrapper from '@/components/NavBar/FlipNav';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
 					appearance={{
 						baseTheme: dark,
 					}}>
-					<Navbar />
+					<FlipNavWrapper />
 					{children}
 					<Footer />
 				</ClerkProvider>
