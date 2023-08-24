@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { SignInButton, SignOutButton } from '../Auth/Buttons';
 import { UserButton } from '@clerk/nextjs';
 
 export const Navbar = async () => {

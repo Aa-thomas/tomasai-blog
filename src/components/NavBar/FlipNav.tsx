@@ -1,5 +1,13 @@
 'use client';
-import { SignInButton, SignUp, SignUpButton, UserButton } from '@clerk/nextjs';
+import {
+	SignInButton,
+	SignOutButton,
+	SignUp,
+	SignUpButton,
+	SignedIn,
+	SignedOut,
+	UserButton,
+} from '@clerk/nextjs';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiMenu, FiArrowRight } from 'react-icons/fi';
@@ -83,19 +91,20 @@ const NavLink = ({ text }: any) => {
 const NavRight = () => {
 	return (
 		<div className="flex items-center gap-4">
-			<UserButton />
-			<motion.button
-				whileHover={{ scale: 1.05 }}
-				whileTap={{ scale: 0.95 }}
-				className="px-4 py-2 font-medium text-transparent rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text whitespace-nowrap">
-				<SignInButton />
-			</motion.button>
-			<motion.button
-				whileHover={{ scale: 1.05 }}
-				whileTap={{ scale: 0.95 }}
-				className="px-4 py-2 font-medium text-white rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 whitespace-nowrap">
-				<SignUpButton />
-			</motion.button>
+			<SignedIn>
+				<UserButton showName />
+				<SignOutButton />
+			</SignedIn>
+
+			<SignedOut>
+				{' '}
+				<motion.button
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
+					className="px-4 py-2 font-medium text-transparent rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text whitespace-nowrap">
+					<SignInButton />
+				</motion.button>
+			</SignedOut>
 		</div>
 	);
 };

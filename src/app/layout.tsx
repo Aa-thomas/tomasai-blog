@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Footer from '@/components/layout/Footer';
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import FlipNavWrapper from '@/components/NavBar/FlipNav';
@@ -27,7 +26,6 @@ export default function RootLayout({
 					}}>
 					<FlipNavWrapper />
 					{children}
-					<Footer />
 				</ClerkProvider>
 			</body>
 		</html>
