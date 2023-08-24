@@ -9,6 +9,7 @@ import {
 	UserButton,
 } from '@clerk/nextjs';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useState } from 'react';
 import { FiMenu, FiArrowRight } from 'react-icons/fi';
 
@@ -35,20 +36,23 @@ const FlipNav = () => {
 const Logo = () => {
 	// Temp logo from https://logoipsum.com/
 	return (
-		<svg
-			width="50"
-			height="39"
-			viewBox="0 0 50 39"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="fill-gray-800">
-			<path
-				d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-				stopColor="#000000"></path>
-			<path
-				d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-				stopColor="#000000"></path>
-		</svg>
+		<Link href="/">
+			{' '}
+			<svg
+				width="50"
+				height="39"
+				viewBox="0 0 50 39"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				className="fill-gray-500">
+				<path
+					d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
+					stopColor="#000000"></path>
+				<path
+					d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
+					stopColor="#000000"></path>
+			</svg>
+		</Link>
 	);
 };
 
@@ -63,17 +67,17 @@ const NavLeft = ({ setIsOpen }: any) => {
 				<FiMenu />
 			</motion.button>
 			<Logo />
-			<NavLink text="About" />
-			<NavLink text="Blog" />
-			<NavLink text="Contact" />
+			<NavLink text="About" route="/about" />
+			<NavLink text="Blog" route="/blog" />
+			<NavLink text="Contact" route="/contact" />
 		</div>
 	);
 };
 
-const NavLink = ({ text }: any) => {
+const NavLink = ({ text, route }: { text: string; route: `/${string}` }) => {
 	return (
 		<a
-			href="#"
+			href={route}
 			rel="nofollow"
 			className="hidden lg:block h-[30px] overflow-hidden font-medium">
 			<motion.div whileHover={{ y: -30 }}>
@@ -92,7 +96,7 @@ const NavRight = () => {
 	return (
 		<div className="flex items-center gap-4">
 			<SignedIn>
-				<UserButton showName />
+				<UserButton />
 				<SignOutButton />
 			</SignedIn>
 
