@@ -1,3 +1,3 @@
 export const Loading = () => (
-	<span className="loading loading-dots loading-lg"></span>
+	<span className="flex items-center justify-center loading loading-dots loading-lg"></span>
 );

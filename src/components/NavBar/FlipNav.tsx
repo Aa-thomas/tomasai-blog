@@ -17,7 +17,6 @@ const FlipNavWrapper = () => {
 	return (
 		<div className="bg-base-100">
 			<FlipNav />
-			<div className="h-72" />
 		</div>
 	);
 };
