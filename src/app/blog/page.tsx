@@ -1,12 +1,16 @@
 import Post from '@/components/Post/Post';
 import { prisma } from '../../../prisma/prisma';
+import CreatePost from '@/components/Post/PostForm';
+import ExampleWrapper from '@/components/Modal/modal';
 
 const BlogPage = async () => {
 	const posts = await prisma.post.findMany();
 
 	return (
 		<main className="flex flex-col">
-			<h1 className="flex justify-center">Blog Posts</h1>
+			<h1 className="flex justify-center my-3 text-5xl">Blog Posts</h1>
+			{/* <CreatePost /> */}
+			<ExampleWrapper />
 			<div className="flex flex-col flex-wrap sm:flex-row ">
 				{' '}
 				{posts.map((post) => (
