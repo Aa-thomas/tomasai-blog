@@ -27,12 +27,16 @@ const SpringModal = ({ isOpen, setIsOpen }: any) => {
 		const formData = new FormData(e.currentTarget);
 
 		const body = {
-			name: user?.fullName,
+			author: {
+				email: user?.emailAddresses[0].emailAddress,
+				isAdmin: true,
+			},
+			authorId: user?.id,
 			title: formData.get('title'),
 			content: formData.get('content'),
 		};
 
-		const res = await fetch('/api/post', {
+		const res = await fetch('/api/posts', {
 			method: 'POST',
 			body: JSON.stringify(body),
 			headers: {
