@@ -25,13 +25,10 @@ const SpringModal = ({ isOpen, setIsOpen }: any) => {
 	const uploadPost = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
+		console.log(user?.id);
 
 		const body = {
-			author: {
-				email: user?.emailAddresses[0].emailAddress,
-				isAdmin: true,
-			},
-			authorId: user?.id,
+			userId: user?.id,
 			title: formData.get('title'),
 			content: formData.get('content'),
 		};
