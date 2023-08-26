@@ -8,13 +8,24 @@ export const GET = async (req: Request, res: Response) => {
 };
 
 export const POST = async (req: Request, res: Response) => {
-	const { title, content, authorId, author } = await req.json();
+	const { title, content, userId } = await req.json();
 	const post = await prisma.post.create({
 		data: {
-			author,
 			title,
 			content,
-			authorId,
+			authorId: userId,
+		},
+	});
+
+	return NextResponse.json(post);
+};
+
+export const DELETE = async (req: Request, res: Response) => {
+	const { postId } = await req.json();
+
+	const post = await prisma.post.delete({
+		where: {
+			id: postId,
 		},
 	});
 

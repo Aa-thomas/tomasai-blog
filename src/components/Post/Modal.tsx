@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useState } from 'react';
-import PostForm from '../Post/PostForm';
+import PostForm from './PostForm';
 import { useUser } from '@clerk/nextjs';
 
 const ModalWrapper = () => {
@@ -25,7 +25,6 @@ const Modal = ({ isOpen, setIsOpen }: any) => {
 	const uploadPost = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
-		console.log(user?.id);
 
 		const body = {
 			userId: user?.id,

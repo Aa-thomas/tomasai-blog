@@ -1,6 +1,6 @@
 import Post from '@/components/Post/Post';
 import { prisma } from '../../../prisma/prisma';
-import ModalWrapper from '@/components/Modal/Modal';
+import ModalWrapper from '@/components/Post/Modal';
 
 const BlogPage = async () => {
 	const posts = await prisma.post.findMany();

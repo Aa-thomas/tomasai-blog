@@ -14,14 +14,21 @@ const PostForm = ({ onSubmit, closeModal }: Props) => {
 		<form onSubmit={onSubmit}>
 			<div className="flex flex-col gap-2">
 				<label htmlFor="title">Title</label>
-				<input type="text" name="title" placeholder={'Place title here'} />
+				<input
+					type="text"
+					name="title"
+					placeholder={'Place title here'}
+					required
+				/>
 				by {user?.fullName}
 				<label htmlFor="content">Content</label>
 				<textarea
 					name="content"
 					cols={30}
 					rows={10}
-					placeholder={'place some content here'}></textarea>
+					placeholder={'place some content here'}
+					required
+				/>
 			</div>
 
 			<div className="flex gap-2">
