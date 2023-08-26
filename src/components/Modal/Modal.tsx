@@ -5,7 +5,7 @@ import { useState } from 'react';
 import PostForm from '../Post/PostForm';
 import { useUser } from '@clerk/nextjs';
 
-const ExampleWrapper = () => {
+const ModalWrapper = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className="grid place-content-center">
@@ -14,12 +14,12 @@ const ExampleWrapper = () => {
 				className="px-4 py-2 font-medium text-white transition-opacity rounded bg-gradient-to-r from-violet-600 to-indigo-600 hover:opacity-90">
 				Create New Post
 			</button>
-			<SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+			<Modal isOpen={isOpen} setIsOpen={setIsOpen} />
 		</div>
 	);
 };
 
-const SpringModal = ({ isOpen, setIsOpen }: any) => {
+const Modal = ({ isOpen, setIsOpen }: any) => {
 	const { user } = useUser();
 
 	const uploadPost = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,4 +73,4 @@ const SpringModal = ({ isOpen, setIsOpen }: any) => {
 	);
 };
 
-export default ExampleWrapper;
+export default ModalWrapper;
