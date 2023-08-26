@@ -20,6 +20,22 @@ export const POST = async (req: Request, res: Response) => {
 	return NextResponse.json(post);
 };
 
+export const PUT = async (req: Request, res: Response) => {
+	const { postId, title, content } = await req.json();
+
+	const post = await prisma.post.update({
+		where: {
+			id: postId,
+		},
+		data: {
+			title,
+			content,
+		},
+	});
+
+	return NextResponse.json(post);
+};
+
 export const DELETE = async (req: Request, res: Response) => {
 	const { postId } = await req.json();
 
